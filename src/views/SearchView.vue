@@ -92,6 +92,7 @@ export default {
 
 <template>
   <div class="text-center">
+    <img src="../assets/quran.png" alt="Logo" width="300">
     <h1>Masukkan nomor surah!</h1>
     <input v-model="cari" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <div v-if="cari">
@@ -103,7 +104,8 @@ export default {
         <h2>Diturunkan di {{ judul?.revelation_place }}</h2>
     </div>
     <p v-if="audio" class="text-lg-center mt-3">
-     <audio v-bind:src="audio.audio_url" controls></audio>
+     <audio v-bind:src="audio.audio_url" controls>
+     </audio>
     </p>
     </div>
     <div v-if="cari" v-for="(ayat,i) in surah" :key="i" class="card">

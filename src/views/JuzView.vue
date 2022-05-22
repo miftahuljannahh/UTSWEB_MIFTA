@@ -50,9 +50,10 @@ export default {
 </script>
 
 <template>
-  <div class="text-end mt-5">
+  <div class="text-center mt-5">
+    <img src="../assets/quran.png" alt="Logo" width="300">
     <h2>Juz {{ $route.params.id }}</h2>
-    <h4 v-for="quran in isijuzs" :key="quran.id" class="text-lg--end mt-5">
+    <h4 v-for="quran in isijuzs" :key="quran.id" class="text-end mt-5">
       {{quran.text_uthmani}} {{quran.verse_key}}
     </h4>
   </div>

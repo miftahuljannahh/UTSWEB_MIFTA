@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 import { ref } from "vue";
 import axios from "axios";
+import FooterItem from "./components/FooterItem.vue";
 
 export default {
   data()
@@ -15,7 +16,8 @@ export default {
   },
 
   components: {
-    RouterView
+    FooterItem,
+    RouterView,
   },
 
   mounted()
@@ -81,7 +83,6 @@ export default {
     <div v-if="loading" class="container">
       <h1 class="text-center">Loading...</h1>
     </div>
-
     <div v-else class="container">
       <ul class="nav nav-pills justify-content-center">
         <li class="nav-item dropdown">
@@ -99,9 +100,8 @@ export default {
             aria-expanded="false">Info Surah</a>
           <ul class="dropdown-menu">
             <li v-for="surah in surahs" :key="surah.id">
-              <router-link :to="{ name: 'surahs', params: { id: surah.id } }" class="dropdown-item">{{
-                  surah.name_complex
-              }}</router-link>
+              <router-link :to="{ name: 'surahs', params: { id: surah.id } }" class="dropdown-item">{{surah.name_complex }}
+              </router-link>
             </li>
           </ul>
         </li>
@@ -112,4 +112,33 @@ export default {
       <RouterView />
     </div>
   </section>
+  <FooterItem/>
 </template>
+<style>
+.container {
+  margin-bottom: 255%;
+}
+.nav {
+  background: linear-gradient(45deg, #99b8ee, #ffedf8);
+  animation: hue-rotate 1s linear infinite alternate;
+  top: 0%;
+}
+
+@keyframes hue-rotate {
+  to {filter: hue-rotate(90deg)}
+}
+
+.nav-item {
+  background-image: linear-gradient(transparent 0%, transparent 90%, #0dcaf0 90%, #99b8ee 100%);
+  background-repeat: no-repeat;
+  background-size: 0%, 100%;
+  background-position-x: right ;
+  transition: background-size 300ms;
+}
+
+.nav-item:hover {
+  background-size: 100% 100%;
+  background-position-x: left;
+}
+
+</style>
